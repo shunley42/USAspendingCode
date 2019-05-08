@@ -4,7 +4,14 @@
 # Creating API Functions for USAspending
 #
 #
-#
+# version date: 5/8/2019
+
+library(httr)
+library(jsonlite)
+library(curl)
+library(plyr)
+library(dplyr)
+
 
 ######
 # This function pulls federal obligations for a specific FY and funding agency
@@ -45,5 +52,8 @@ federal_obligations_api <- function(year, id) {
 
 # Example pull
 pull <- federal_obligations_api(year = "2018", id = "1068")
+df <- pull$content$results
 
+# Pulling for all agencies will require a loop and list of agencies
+#####
 
